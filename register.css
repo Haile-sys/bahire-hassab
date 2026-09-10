@@ -1,0 +1,296 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #193758 0%,
+            #0d1d31 45%,
+            #07111f 100%
+        );
+
+    color: #f7f2e7;
+
+    font-family:
+        "Noto Sans Ethiopic",
+        "Abyssinica SIL",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+
+.register-page {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+.register-card {
+
+    width: min(450px, 100%);
+
+    padding: 42px 35px;
+
+    text-align: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.22);
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.045);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.cross {
+
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.5);
+
+    border-radius: 50%;
+
+    color: #d4af37;
+
+    font-size: 25px;
+}
+
+
+.eyebrow {
+
+    margin: 0 0 10px;
+
+    color: #d4af37;
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+}
+
+
+h1 {
+
+    margin: 0;
+
+    color: #fffaf0;
+
+    font-size: 2rem;
+
+    line-height: 1.5;
+}
+
+
+.subtitle {
+
+    margin: 12px 0 30px;
+
+    color: #9eacbd;
+
+    line-height: 1.8;
+}
+
+
+form {
+
+    text-align: left;
+}
+
+
+label {
+
+    display: block;
+
+    margin: 18px 0 8px;
+
+    color: #d7dee8;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+}
+
+
+input {
+
+    width: 100%;
+
+    padding: 15px 16px;
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background:
+        rgba(255, 255, 255, 0.06);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+input::placeholder {
+
+    color: #7f8c9e;
+}
+
+
+input:focus {
+
+    border-color: #d4af37;
+
+    background:
+        rgba(255, 255, 255, 0.09);
+
+    box-shadow:
+        0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+
+.form-message {
+
+    min-height: 20px;
+
+    margin: 12px 0 0;
+
+    color: #d4af37;
+
+    font-size: 0.85rem;
+
+    text-align: center;
+}
+
+
+button {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d4af37,
+            #b88b20
+        );
+
+    color: #101a29;
+
+    font-family: inherit;
+
+    font-size: 1rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        filter 0.2s ease;
+}
+
+
+button:hover {
+
+    filter: brightness(1.08);
+
+    transform: translateY(-2px);
+}
+
+
+button:disabled {
+
+    opacity: 0.6;
+
+    cursor: wait;
+
+    transform: none;
+}
+
+
+.arrow {
+
+    margin-left: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1.2rem;
+}
+
+
+.privacy-note {
+
+    margin: 25px 0 0;
+
+    color: #718095;
+
+    font-size: 0.72rem;
+
+    line-height: 1.6;
+}
+
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .register-card {
+        padding: 35px 24px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+    }
+
+}

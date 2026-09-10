@@ -1,0 +1,822 @@
+/* =========================================
+   BAHIRE HASSAB
+   HOME PAGE
+   Shared Light / System / Dark Design
+   ========================================= */
+
+
+/* =========================================
+   DESIGN TOKENS
+   ========================================= */
+
+:root {
+
+    --bg: #f7f4ec;
+    --surface: #ffffff;
+    --surface-soft: #f0ede4;
+
+    --text: #172235;
+    --text-soft: #657286;
+    --text-muted: #8993a1;
+
+    --gold: #b88918;
+    --gold-light: #d4af37;
+    --gold-soft: rgba(184, 137, 24, 0.12);
+
+    --navy: #102844;
+    --navy-light: #1c3c61;
+
+    --border: rgba(23, 34, 53, 0.10);
+
+    --shadow:
+        0 20px 60px rgba(23, 34, 53, 0.10);
+
+    --radius: 18px;
+
+    color-scheme: light;
+
+}
+
+
+/* =========================================
+   DARK THEME
+   ========================================= */
+
+[data-theme="dark"] {
+
+    --bg: #07111f;
+    --surface: #0e1c2e;
+    --surface-soft: #14253b;
+
+    --text: #f7f2e7;
+    --text-soft: #aeb9c8;
+    --text-muted: #748398;
+
+    --gold: #d4af37;
+    --gold-light: #e2c35c;
+    --gold-soft: rgba(212, 175, 55, 0.10);
+
+    --navy: #17345a;
+    --navy-light: #234b76;
+
+    --border: rgba(255, 255, 255, 0.09);
+
+    --shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28);
+
+    color-scheme: dark;
+
+}
+
+
+/* =========================================
+   GLOBAL
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 10%,
+            var(--gold-soft),
+            transparent 32%
+        ),
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        "Noto Sans Ethiopic",
+        "Abyssinica SIL",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+.top-bar {
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+
+    width: 100%;
+
+    border-bottom: 1px solid var(--border);
+
+    background:
+        color-mix(
+            in srgb,
+            var(--bg) 88%,
+            transparent
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+.nav-inner {
+
+    width: min(1150px, calc(100% - 32px));
+
+    min-height: 76px;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+}
+
+.brand {
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    margin-right: auto;
+}
+
+.brand-cross {
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    color: var(--gold);
+
+    font-size: 19px;
+
+}
+
+.brand-title {
+
+    display: block;
+
+    color: var(--text);
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.brand-subtitle {
+
+    display: block;
+
+    margin-top: 2px;
+
+    color: var(--text-muted);
+
+    font-size: 0.58rem;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================
+   NAV LINKS
+   ========================================= */
+
+.navigation {
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.nav-link {
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    color: var(--text-soft);
+
+    text-decoration: none;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+}
+
+.nav-link:hover {
+
+    color: var(--text);
+
+    background: var(--gold-soft);
+}
+
+.nav-link.active {
+
+    color: var(--gold);
+
+    background: var(--gold-soft);
+}
+
+
+/* =========================================
+   THEME SELECTOR
+   ========================================= */
+
+.theme-selector {
+
+    display: flex;
+    align-items: center;
+
+    padding: 4px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.theme-selector button {
+
+    width: 31px;
+    height: 30px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 0.9rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.theme-selector button:hover {
+
+    color: var(--text);
+
+    transform: translateY(-1px);
+}
+
+.theme-selector button.active {
+
+    background: var(--gold);
+
+    color: #111b28;
+
+}
+
+
+/* =========================================
+   MAIN
+   ========================================= */
+
+main {
+
+    width: 100%;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
+/* =========================================
+   CLOCK
+   ========================================= */
+
+#clockcontainer {
+
+    width: min(850px, calc(100% - 32px));
+
+    margin-top: 48px;
+
+    padding: 25px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    text-align: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+
+}
+
+.time-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--gold-soft);
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+}
+
+.time-label {
+
+    margin: 0 0 5px;
+
+    color: var(--gold);
+
+    font-size: 0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+#clock {
+
+    color: var(--text);
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: clamp(2rem, 6vw, 3.5rem);
+
+    font-weight: 300;
+
+    line-height: 1;
+
+    letter-spacing: 4px;
+
+}
+
+.time-description {
+
+    margin: 7px 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================
+   WELCOME
+   ========================================= */
+
+#container {
+
+    width: min(900px, calc(100% - 32px));
+
+    margin-top: 80px;
+
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+}
+
+.welcome-symbol {
+
+    width: 66px;
+    height: 66px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    background: var(--gold-soft);
+
+    color: var(--gold);
+
+    font-size: 27px;
+
+    box-shadow:
+        0 0 35px var(--gold-soft);
+
+}
+
+.eyebrow {
+
+    margin: 0 0 15px;
+
+    color: var(--gold);
+
+    font-size: 0.7rem;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+#myh2 {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    color: var(--text);
+
+    font-size:
+        clamp(1.7rem, 4vw, 3rem);
+
+    line-height: 1.65;
+
+    font-weight: 800;
+
+}
+
+.intro {
+
+    max-width: 620px;
+
+    margin: 22px 0 34px;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    line-height: 1.9;
+
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+   ========================================= */
+
+#holydays-link {
+
+    text-decoration: none;
+}
+
+#holydaysBtn {
+
+    min-width: 315px;
+
+    padding: 16px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
+
+    color: #111b28;
+
+    font-family: inherit;
+
+    font-size: 0.95rem;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 14px 35px var(--gold-soft);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease;
+
+}
+
+#holydaysBtn:hover {
+
+    transform: translateY(-4px);
+
+    filter: brightness(1.06);
+
+    box-shadow:
+        0 20px 45px var(--gold-soft);
+
+}
+
+#holydaysBtn:active {
+
+    transform: translateY(-1px);
+
+}
+
+#holydaysBtn .arrow {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1.4rem;
+
+    transition:
+        transform 0.25s ease;
+
+}
+
+#holydaysBtn:hover .arrow {
+
+    transform: translateX(6px);
+
+}
+
+
+/* =========================================
+   FEATURE ROW
+   ========================================= */
+
+.feature-row {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 14px;
+
+}
+
+.feature {
+
+    padding: 18px 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+
+}
+
+.feature:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--gold);
+
+}
+
+.feature span {
+
+    color: var(--gold);
+
+    font-size: 1.2rem;
+
+}
+
+.feature p {
+
+    margin: 8px 0 0;
+
+    color: var(--text-soft);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+
+    width: 100%;
+
+    margin-top: 80px;
+
+    padding: 28px 20px 35px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    color: var(--text-muted);
+
+    font-size: 0.72rem;
+
+}
+
+footer span {
+
+    color: var(--gold);
+
+    font-weight: 800;
+
+}
+
+footer p {
+
+    margin: 6px 0 0;
+
+}
+
+
+/* =========================================
+   KEYBOARD ACCESSIBILITY
+   ========================================= */
+
+button:focus-visible,
+a:focus-visible {
+
+    outline: 3px solid var(--gold);
+
+    outline-offset: 4px;
+
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    .nav-inner {
+
+        min-height: 68px;
+
+        gap: 10px;
+
+    }
+
+    .navigation {
+
+        display: none;
+
+    }
+
+    .brand {
+
+        margin-right: 0;
+
+    }
+
+    .theme-selector {
+
+        margin-left: auto;
+
+    }
+
+    #clockcontainer {
+
+        margin-top: 28px;
+
+        padding: 22px 15px;
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+    #clock {
+
+        font-size: 2.1rem;
+
+        letter-spacing: 2px;
+
+    }
+
+    #container {
+
+        margin-top: 55px;
+
+    }
+
+    #myh2 {
+
+        font-size: 1.55rem;
+
+        line-height: 1.75;
+
+    }
+
+    .intro {
+
+        font-size: 0.9rem;
+
+    }
+
+    #holydaysBtn {
+
+        width: 100%;
+
+        min-width: 0;
+
+        font-size: 0.85rem;
+
+    }
+
+    .feature-row {
+
+        grid-template-columns: 1fr;
+
+        max-width: 360px;
+
+        margin-top: 45px;
+
+    }
+
+    footer {
+
+        margin-top: 55px;
+
+    }
+
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ባሕረ ሐሳብ — Ethiopian Calendar</title>
+
+    <link rel="stylesheet" href="holyday.css">
+
+    <script src="theme.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         NAVIGATION
+         ================================ -->
+
+    <header class="top-bar">
+
+        <div class="nav-inner">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-cross">
+                    ✝
+                </span>
+
+                <span class="brand-text">
+
+                    <span class="brand-title">
+                        ባሕረ ሐሳብ
+                    </span>
+
+                    <span class="brand-subtitle">
+                        ETHIOPIAN CALENDAR
+                    </span>
+
+                </span>
+
+            </a>
+
+
+            <nav class="navigation">
+
+                <a
+                    href="index.html"
+                    class="nav-link"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="holyday.html"
+                    class="nav-link active"
+                >
+                    በዓላት
+                </a>
+
+            </nav>
+
+
+            <div
+                class="theme-selector"
+                aria-label="Appearance"
+            >
+
+                <button
+                    type="button"
+                    data-theme-option="light"
+                    aria-label="Light mode"
+                    aria-pressed="false"
+                >
+                    ☀
+                </button>
+
+                <button
+                    type="button"
+                    data-theme-option="system"
+                    aria-label="System theme"
+                    aria-pressed="false"
+                >
+                    ◐
+                </button>
+
+                <button
+                    type="button"
+                    data-theme-option="dark"
+                    aria-label="Dark mode"
+                    aria-pressed="false"
+                >
+                    ☾
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         HERO
+         ================================ -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="cross">
+                ✝
+            </div>
+
+            <p class="eyebrow">
+                ETHIOPIAN CALENDAR
+            </p>
+
+            <h1>
+                ባሕረ ሐሳብ
+            </h1>
+
+            <p class="subtitle">
+                Ethiopian Calendar & Orthodox Christian Feast Calculator
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main id="year-container">
+
+
+        <!-- YEAR INPUT -->
+
+        <section id="input-section">
+
+            <div class="section-label">
+
+                <span>
+                    ዓመተ ምህረት
+                </span>
+
+                <small>
+                    Enter an Ethiopian year
+                </small>
+
+            </div>
+
+
+            <div id="input">
+
+                <input
+                    type="text"
+                    id="year"
+                    placeholder="ዓመተ ምህረት ያስገቡ!"
+                    autocomplete="off"
+                >
+
+                <p id="yearpara"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CALCULATOR -->
+
+        <section class="calculator-section">
+
+            <div class="section-heading">
+
+                <span class="line"></span>
+
+                <h2>
+                    በዓላትና ቀናት
+                </h2>
+
+                <span class="line"></span>
+
+            </div>
+
+
+            <div id="container">
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ወንጌላዊ()"
+                        id="ወንጌላዊBtn"
+                    >
+                        ወንጌላዊ
+                    </button>
+
+                    <p id="ወንጌላዊpara">
+                        ወንጌላዊ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ባሕት()"
+                        id="ባሕትBtn"
+                    >
+                        ባሕት/ቀን
+                    </button>
+
+                    <p id="ባሕትpara">
+                        ባሕት/ቀን
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="አበቀቴ()"
+                        id="አበቀቴBtn"
+                    >
+                        አበቀቴ
+                    </button>
+
+                    <p id="አበቀቴpara">
+                        አበቀቴ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="መጥቅዕ()"
+                        id="መጥቅዕBtn"
+                    >
+                        መጥቅዕ
+                    </button>
+
+                    <p id="መጥቅዕpara">
+                        መጥቅዕ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ጾመ_ነነዌ()"
+                        id="ጾመ_ነነዌBtn"
+                    >
+                        ጾመ ነነዌ
+                    </button>
+
+                    <p id="ጾመ_ነነዌpara">
+                        ጾመ ነነዌ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ዓርባ_ጾም()"
+                        id="ዓርባ_ጾምBtn"
+                    >
+                        ዓርባ ጾም
+                    </button>
+
+                    <p id="ዓርባ_ጾምpara">
+                        ዓርባ ጾም
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ደብረ_ዘይት()"
+                        id="ደብረ_ዘይትBtn"
+                    >
+                        ደብረ ዘይት
+                    </button>
+
+                    <p id="ደብረ_ዘይትpara">
+                        ደብረ ዘይት
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ሆሳዕና()"
+                        id="ሆሳዕናBtn"
+                    >
+                        ሆሳዕና
+                    </button>
+
+                    <p id="ሆሳዕናpara">
+                        ሆሳዕና
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ስቅለት()"
+                        id="ስቅለትBtn"
+                    >
+                        ስቅለት
+                    </button>
+
+                    <p id="ስቅለትpara">
+                        ስቅለት
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ትነሣዔ()"
+                        id="ትነሣዔBtn"
+                    >
+                        ትነሣዔ
+                    </button>
+
+                    <p id="ትነሣዔpara">
+                        ትነሣዔ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ርክበ_ካህናት()"
+                        id="ርክበ_ካህናትBtn"
+                    >
+                        ርክበ ካህናት
+                    </button>
+
+                    <p id="ርክበ_ካህናትpara">
+                        ርክበ ካህናት
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ዕርገት()"
+                        id="ዕርገትBtn"
+                    >
+                        ዕርገት
+                    </button>
+
+                    <p id="ዕርገትpara">
+                        ዕርገት
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ጰራቅሊጦስ()"
+                        id="ጰራቅሊጦስBtn"
+                    >
+                        ጰራቅሊጦስ
+                    </button>
+
+                    <p id="ጰራቅሊጦስpara">
+                        ጰራቅሊጦስ
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ጾመ_ሐዋርያት()"
+                        id="ጾመ_ሐዋርያትBtn"
+                    >
+                        ጾመ ሐዋርያት
+                    </button>
+
+                    <p id="ጾመ_ሐዋርያትpara">
+                        ጾመ ሐዋርያት
+                    </p>
+
+                </div>
+
+
+                <div class="calendar-card">
+
+                    <button
+                        onclick="ጾመ_ድኅነት()"
+                        id="ጾመ_ድኅነትBtn"
+                    >
+                        ጾመ ድኅነት
+                    </button>
+
+                    <p id="ጾመ_ድኅነትpara">
+                        ጾመ ድኅነት
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            ባሕረ ሐሳብ
+        </p>
+
+        <span>
+            Preserving Ethiopian calendar knowledge through technology.
+        </span>
+
+    </footer>
+
+
+    <!-- Your original calculator logic -->
+    <script src="holyday.js"></script>
+
+</body>
+
+</html>

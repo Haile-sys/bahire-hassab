@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="An Ethiopian calendar and Bahire Hassab website."
+    >
+
+    <title>ባሕረ ሐሳብ — Ethiopian Calendar</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Theme is loaded early to reduce theme flashing -->
+    <script src="theme.js"></script>
+</head>
+
+
+<body>
+
+    <!-- ================================
+         NAVIGATION
+         ================================ -->
+
+    <header class="top-bar">
+
+        <div class="nav-inner">
+
+            <a href="index.html" class="brand">
+
+                <span class="brand-cross">✝</span>
+
+                <span class="brand-text">
+                    <span class="brand-title">
+                        ባሕረ ሐሳብ
+                    </span>
+
+                    <span class="brand-subtitle">
+                        ETHIOPIAN CALENDAR
+                    </span>
+                </span>
+
+            </a>
+
+
+            <nav class="navigation">
+
+                <a href="index.html" class="nav-link active">
+                    Home
+                </a>
+
+                <a
+                    href="register.html"
+                    class="nav-link"
+                >
+                    በዓላት
+                </a>
+
+            </nav>
+
+
+            <!-- Theme selector -->
+
+            <div
+                class="theme-selector"
+                aria-label="Appearance"
+            >
+
+                <button
+                    type="button"
+                    data-theme-option="light"
+                    aria-label="Light mode"
+                    aria-pressed="false"
+                >
+                    ☀
+                </button>
+
+                <button
+                    type="button"
+                    data-theme-option="system"
+                    aria-label="System theme"
+                    aria-pressed="false"
+                >
+                    ◐
+                </button>
+
+                <button
+                    type="button"
+                    data-theme-option="dark"
+                    aria-label="Dark mode"
+                    aria-pressed="false"
+                >
+                    ☾
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+
+        <!-- ================================
+             TIME
+             ================================ -->
+
+        <section id="clockcontainer">
+
+            <div class="time-icon">
+                ◷
+            </div>
+
+            <div>
+
+                <p class="time-label">
+                    ETHIOPIAN TIME
+                </p>
+
+                <div id="clock">
+                    00:00:00
+                </div>
+
+                <p class="time-description">
+                    የኢትዮጵያ የሰዓት አቆጣጠር
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             HERO
+             ================================ -->
+
+        <section id="container">
+
+            <div class="welcome-symbol">
+                ☀
+            </div>
+
+            <p class="eyebrow">
+                የኢትዮጵያ የዘመን አቆጣጠር
+            </p>
+
+            <h1 id="myh2">
+                እንኳን ወደ ኢትዮጵያውያን
+                የዘመን አቆጣጠር ስርዓት
+                በደኅና መጡ።
+            </h1>
+
+            <p class="intro">
+                የኢትዮጵያን የዘመን አቆጣጠር፣
+                በዓላትን እና አፅዋማትን
+                በቀላሉ ይወቁ።
+            </p>
+
+
+            <a
+                href="register.html"
+                id="holydays-link"
+            >
+
+                <button id="holydaysBtn">
+
+                    <span>
+                        በዓላትን እና አፅዋማትን ለማወቅ
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </a>
+
+
+            <div class="feature-row">
+
+                <div class="feature">
+                    <span>📅</span>
+                    <p>የኢትዮጵያ ዘመን</p>
+                </div>
+
+                <div class="feature">
+                    <span>✦</span>
+                    <p>በዓላትና አፅዋማት</p>
+                </div>
+
+                <div class="feature">
+                    <span>◷</span>
+                    <p>የኢትዮጵያ ሰዓት</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>
+            ባሕረ ሐሳብ
+        </span>
+
+        <p>
+            Preserving Ethiopian calendar knowledge through technology.
+        </p>
+
+    </footer>
+
+
+    <!-- Your clock logic remains untouched -->
+    <script src="timeindex.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Register — ባሕረ ሐሳብ</title>
+
+    <link rel="stylesheet" href="register.css">
+
+</head>
+
+
+<body>
+
+    <main class="register-page">
+
+        <div class="register-card">
+
+            <div class="cross">✝</div>
+
+            <p class="eyebrow">
+                ባሕረ ሐሳብ
+            </p>
+
+            <h1>
+                እንኳን ደህና መጡ
+            </h1>
+
+            <p class="subtitle">
+                የበዓላትን እና የአፅዋማትን
+                መረጃ ለማየት እባክዎ ይመዝገቡ።
+            </p>
+
+
+            <form id="registrationForm">
+
+                <label for="fullName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
+                >
+
+
+                <p
+                    id="formMessage"
+                    class="form-message"
+                ></p>
+
+
+                <button type="submit" id="registerBtn">
+
+                    <span>
+                        Continue
+                    </span>
+
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <p class="privacy-note">
+                Your name and email are used only
+                to register your visit to this website.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Your registration code -->
+    <script src="register.js"></script>
+
+</body>
+
+</html>
