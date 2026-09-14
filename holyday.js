@@ -20,9 +20,6 @@ if(typeof inputYear === "number"){
                 document.getElementById("ወንጌላዊpara").textContent = "ዮሐንስ";
                 break
         }
-    
-
-
     }
     document.getElementById("ባሕትBtn").onclick = function(){
         let inputYear = document.getElementById("year").value;
@@ -72,23 +69,104 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder)) / 30);
             let daY = (addholydayofmetqe + metqRemainder) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ነነዌpara").textContent = arrayLess[montH] + daY;  
         }
-        else{
-            let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder)) / 30);
             let daY = (addholydayofmetqe + metqRemainder) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ነነዌpara").textContent = arrayLess[montH] + daY;
         }
-    }
+        else{
+            let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder) % 30;
+            daY = String(daY);
+            document.getElementById("ጾመ_ነነዌpara").textContent = arrayLess[montH] + daY;
+        }
+    }  
     document.getElementById("ዓርባ_ጾምBtn").onclick = function(){
         let inputYear = document.getElementById("year").value;
         inputYear = Number(inputYear);
@@ -96,18 +174,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 14) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 14) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 14) % 30;
             daY = String(daY);
             document.getElementById("ዓርባ_ጾምpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder + 14) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 14) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 14) % 30;
+            daY = String(daY);
+            document.getElementById("ዓርባ_ጾምpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder + 14) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 14)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 14) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 14) % 30;
             daY = String(daY);
             document.getElementById("ዓርባ_ጾምpara").textContent = arrayLess[montH] + daY;
@@ -120,18 +279,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 41) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 41) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 41) % 30;
             daY = String(daY);
             document.getElementById("ደብረ_ዘይትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder + 41) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 41) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 14) % 30;
+            daY = String(daY);
+            document.getElementById("ደብረ_ዘይትpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder + 41) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 41)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 41) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 41) % 30;
             daY = String(daY);
             document.getElementById("ደብረ_ዘይትpara").textContent = arrayLess[montH] + daY;
@@ -144,18 +384,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 62) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 62) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 62) % 30;
             daY = String(daY);
             document.getElementById("ሆሳዕናpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder + 62) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 62) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 62) % 30;
+            daY = String(daY);
+            document.getElementById("ሆሳዕናpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder + 62) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 62)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 62) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 62) % 30;
             daY = String(daY);
             document.getElementById("ሆሳዕናpara").textContent = arrayLess[montH] + daY;
@@ -168,18 +489,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 67) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 67) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 67) % 30;
             daY = String(daY);
             document.getElementById("ስቅለትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder + 67) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 67) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 67) % 30;
+            daY = String(daY);
+            document.getElementById("ጾመ_ነነዌpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder + 67) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 67)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 67) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 67) % 30;
             daY = String(daY);
             document.getElementById("ስቅለትpara").textContent = arrayLess[montH] + daY;
@@ -192,18 +594,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 69) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 69) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 69) % 30;
             daY = String(daY);
             document.getElementById("ትነሣዔpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 69) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 69) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 69) % 30;
+            daY = String(daY);
+            document.getElementById("ትነሣዔpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 69) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 69)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 69) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 69) % 30;
             daY = String(daY);
             document.getElementById("ትነሣዔpara").textContent = arrayLess[montH] + daY;
@@ -216,18 +699,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 93) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 93) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 93) % 30;
             daY = String(daY);
             document.getElementById("ርክበ_ካህናትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 93) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 93) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 93) % 30;
+            daY = String(daY);
+            document.getElementById("ርክበ_ካህናትpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 93) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 93)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 93) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 93) % 30;
             daY = String(daY);
             document.getElementById("ርክበ_ካህናትpara").textContent = arrayLess[montH] + daY;
@@ -240,18 +804,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 108) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 108) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 108) % 30;
             daY = String(daY);
             document.getElementById("ዕርገትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 108) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 108) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 108) % 30;
+            daY = String(daY);
+            document.getElementById("ዕርገትpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 108) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 108)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 108) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 108) % 30;
             daY = String(daY);
             document.getElementById("ዕርገትpara").textContent = arrayLess[montH] + daY;
@@ -264,18 +909,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 118) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 118) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 118) % 30;
             daY = String(daY);
             document.getElementById("ጰራቅሊጦስpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 118) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 118) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 118) % 30;
+            daY = String(daY);
+            document.getElementById("ጰራቅሊጦስpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 118) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 118)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 118) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 118) % 30;
             daY = String(daY);
             document.getElementById("ጰራቅሊጦስpara").textContent = arrayLess[montH] + daY;
@@ -288,18 +1014,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 119) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 119) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 119) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ሐዋርያትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 119) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 119) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 119) % 30;
+            daY = String(daY);
+            document.getElementById("ጾመ_ሐዋርያትpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 119) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 119)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 119) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 119) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ሐዋርያትpara").textContent = arrayLess[montH] + daY;
@@ -312,18 +1119,99 @@ if(typeof inputYear === "number"){
         let medeb = (inputYear + 5500) % 19 === 0 ? metqRemainder = 12 : metqRemainder = ((((((inputYear + 5500) % 19) - 1) * 19) % 30) === 0? 30 : (((((inputYear + 5500) % 19) - 1) * 19) % 30));;
         if(metqRemainder > 14){
             let holydayofmetqe = `መስከረም ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["ጥር ", "የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 121) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30);
             let daY = (addholydayofmetqe + metqRemainder  + 121) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 121) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ድኅነትpara").textContent = arrayLess[montH] + daY;  
         }
+        else if(metqRemainder === 0){
+            let holydayofmetqe = `መስከረም 30`;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
+            let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
+            let montH = (addholydayofmetqe + metqRemainder  + 121) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30);
+            let daY = (addholydayofmetqe + metqRemainder + 121) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder + 121) % 30;
+            daY = String(daY);
+            document.getElementById("ጾመ_ድኅነትpara").textContent = arrayLess[montH] + daY;
+        }
         else{
             let holydayofmetqe = `ጥቅምት ${metqRemainder}`;
-            let addholydayofmetqe = (inputYear + 5500 + 30 + metqRemainder - 1) % 7;
+            let fourth_year_remainder = Math.floor((inputYear + 5500) / 4);
+            let addholydayofmetqe = (fourth_year_remainder + inputYear + 5500 + 30 + metqRemainder) % 7;
+            switch(addholydayofmetqe){
+                case 0:
+                    addholydayofmetqe = 7;
+                    break
+                case 1:
+                    addholydayofmetqe = 6;
+                    break
+                case 2:
+                    addholydayofmetqe = 5;
+                    break
+                case 3:
+                    addholydayofmetqe = 4;
+                    break
+                case 4:
+                    addholydayofmetqe = 3;
+                    break
+                case 5:
+                    addholydayofmetqe = 2;
+                    break
+                case 6:
+                    addholydayofmetqe = 8;
+                    break
+        }
             let arrayLess = ["የካቲት ", "መጋቢት ", "ሚያዝያ ", "ግንቦት ", "ሰኔ "];
-            let montH = Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30);
+            let montH = (addholydayofmetqe + metqRemainder  + 121) % 30 === 0 ? Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30) - 1 : Math.floor(((addholydayofmetqe + metqRemainder + 121)) / 30);
             let daY = (addholydayofmetqe + metqRemainder + 121) % 30 === 0 ? 30 : (addholydayofmetqe + metqRemainder  + 121) % 30;
             daY = String(daY);
             document.getElementById("ጾመ_ድኅነትpara").textContent = arrayLess[montH] + daY;
